@@ -7,6 +7,14 @@ app.use(bodyParser.json());
 app.post('/', function(req,res){
   req.body;
 });
+app.post("/name", function(req, res) {
+    var firstName = req.body.first;
+    var lastName = req.body.last;
+    res.json({
+      name: `${firstName} ${lastName}`
+    });
+  });
+
 app.use(function(req,res, next){
     console.log(req.method + " " + req.path + " - " + req.ip);
     next();
