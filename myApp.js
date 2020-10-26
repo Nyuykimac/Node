@@ -1,6 +1,12 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 console.log("Hello World");
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.post('/', function(req,res){
+  req.body;
+});
 app.use(function(req,res, next){
     console.log(req.method + " " + req.path + " - " + req.ip);
     next();
@@ -32,6 +38,13 @@ app.get('/', function(req, res){
    res.json({echo: word});
    
  });
+ app.get("/name", function(req, res) {
+    var firstName = req.query.first;
+    var lastName = req.query.last;
+    res.json({
+      name: `${firstName} ${lastName}`
+    });
+  });
   
 
 module.exports=app;
