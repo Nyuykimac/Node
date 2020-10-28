@@ -105,6 +105,9 @@ var createAndSavePerson = function(done) {
 // Model.create() with the argument arrayOfPeople.
 // Note: You can reuse the model you instantiated in the previous exercise.
 
+var arrayOfPeople = Person.create([{name: "Mark Ngoran", age: 23, favoriteFoods: ["Del Taco"]},
+{name: "Sol", age: 76, favoriteFoods: ["roast chicken"]},
+{name: "Robert", age: 78, favoriteFoods: ["wine"]}])
 var createManyPeople = function(arrayOfPeople, done) {
     
     done(null/*, data*/);
@@ -292,4 +295,4 @@ exports.findAndUpdate = findAndUpdate;
 exports.createManyPeople = createManyPeople;
 exports.removeById = removeById;
 exports.removeManyPeople = removeManyPeople;
-exports.queryChain = queryChain;
+//exports.queryChain = queryChain;
