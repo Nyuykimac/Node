@@ -6,7 +6,6 @@
 'use strict';
 
 var fs = require('fs');
-var myApp = require('./myApp');
 var express = require('express');
 var app = express();
 
