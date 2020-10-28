@@ -104,16 +104,27 @@ var createAndSavePerson = function(done) {
 // Modify the createManyPeople function to create many people using
 // Model.create() with the argument arrayOfPeople.
 // Note: You can reuse the model you instantiated in the previous exercise.
-[
-  {name: "Frankie", age: 74, favoriteFoods: ["Del Taco"]},
-  {name: "Sol", age: 76, favoriteFoods: ["roast chicken"]},
-  {name: "Robert", age: 78, favoriteFoods: ["wine"]}
-];
+
+var arrayOfPeople = [
+  {
+    name: "Mark Ngoran", age: 23, favoriteFoods: ["Del Taco"]
+  },
+ {
+   name: "Sol", age: 76, favoriteFoods: ["roast chicken"]
+  },
+
+
+  {
+    name: "Robert", age: 78, favoriteFoods: ["wine"]
+  }
+]
 var createManyPeople = function(arrayOfPeople, done) {
-  Person.create(arrayOfPeople, function (err, people) {
-    if (err) return console.log(err);
+  Person.create(arrayOfPeople,function(err,people){
+    if(err) return console.log(err);
+  })
+    
     done(null, people);
-  });
+    
 };
 
 /** # C[R]UD part II - READ #
@@ -128,9 +139,11 @@ var createManyPeople = function(arrayOfPeople, done) {
 // Use the function argument `personName` as search key.
 
 var findPeopleByName = function(personName, done) {
-  
-  done(null/*, data*/);
-
+  Person.find({name: personName},function(err,personFound){
+    if(err) return console.log(err);
+     done(null, personFound);
+  });
+ 
 };
 
 /** 6) Use `Model.findOne()` */
