@@ -13,6 +13,14 @@
 // as MONGO_URI. Connect to the database using the following syntax:
 //
 // mongoose.connect(<Your URI>, { useNewUrlParser: true, useUnifiedTopology: true }); 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://Mark_Ngoran:Wanngoran@cluster0.godzq.mongodb.net/project?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const personSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String]
+});
 
 
 
@@ -41,7 +49,7 @@
 
 // <Your code here >
 
-var Person /* = <Your Model> */
+var Person = mongoose.model("Person", personSchema);
 
 // **Note**: Glitch is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
